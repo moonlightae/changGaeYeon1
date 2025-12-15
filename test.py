@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+print("Please input x's data")
+x_list = list(map(float, input(">").split()))
+print("Please input y's data")
+y_list = list(map(float, input(">").split()))
+
+print("Please input Figure Title")
+plt.title(input(">"))
+print("Please input x's label")
+plt.xlabel(input(">"))
+print("Please input y's label")
+plt.ylabel(input(">"))
+plt.plot(x_list, y_list)
+print("Please input xmin, xmax, ymin, ymax")
+xmin, xmax, ymin, ymax = map(float, input(">").split())
+plt.axis((xmin, xmax, ymin, ymax))
+plt.show()
