@@ -8,7 +8,7 @@ import torch
 
 # load model and infer
 model = RegressionModel(pretrained=False)
-model.load_state_dict(torch.load('best_model.pt', map_location='cpu'))
+model.load_state_dict(torch.load('model.pt', map_location='cpu'))
 model.eval()
 # 이미지 전처리 동일하게 적용
 img = Image.open('tests/test_3.jpg').convert('RGB')

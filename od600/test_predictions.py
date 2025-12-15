@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 TEST_IMG_DIR = "tests"
 TEST_LABEL_CSV = "test_labels.csv"
-MODEL_PATH = "best_model.pt"
+MODEL_PATH = "model.pt"
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -46,10 +46,10 @@ with torch.no_grad():
 
         results.append({
             "image": img_name,
-            "true_od": true_od,
-            "pred_od": pred_od,
-            "abs_error": abs(pred_od - true_od),
-            "rel_error_%": abs(pred_od - true_od) / true_od * 100 if true_od > 0 else abs(pred_od - true_od)
+            "true_od": round(true_od, 5),
+            "pred_od": round(pred_od, 5),
+            "abs_error": round(abs(pred_od - true_od), 5),
+            "rel_error_%": round(abs(pred_od - true_od) / true_od * 100 if true_od > 0 else abs(pred_od - true_od), 5)
         })
 
 y_true = np.array(y_true)
